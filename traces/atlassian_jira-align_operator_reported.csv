@@ -1,0 +1,4 @@
+start_time,end_time,status,service
+0.0,3614.0,0.5,atlassian_jira-align
+59806939.0,59817299.0,0.5,atlassian_jira-align
+71880441.0,71891522.0,0.027027027027026973,atlassian_jira-align
