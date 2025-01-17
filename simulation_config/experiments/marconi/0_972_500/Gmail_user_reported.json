@@ -1,0 +1,78 @@
+{
+    "outputFolder": "output/marconi/0_972_500",
+    "name": "Gmail_user_reported",
+    "runs": 1,
+    "exportModels": [{
+        "exportInterval": 14400
+    }],
+    "topologies": [{
+        "pathToFile": "topologies/marconi_500.json"
+    }],
+    "workloads": [{
+        "pathToFile": "workload_traces/marconi/0_972",
+        "type": "ComputeWorkload"
+        }],
+    "allocationPolicies": [{
+        "policyType": "Mem"
+    }],
+    "computeExportConfig": {
+		"hostExportColumns": ["timestamp", "timestamp_absolute", "power_draw", "energy_usage", "cpu_usage", "cpu_utilization"],
+		"taskExportColumns": ["timestamp", "task_name", "boot_time", "creation_time", "finish_time", "host_id", "task_state"],
+		"serviceExportColumns": ["timestamp", "tasks_total", "tasks_pending", "tasks_active", "tasks_completed", "tasks_terminated", "hosts_up"]
+	},
+    "failureModels": [
+        {
+            "type": "trace-based",
+            "pathToFile": "failure_traces/opendc_traces/Gmail_user_reported.parquet",
+            "startPoint": 0.0
+        },{
+            "type": "trace-based",
+            "pathToFile": "failure_traces/opendc_traces/Gmail_user_reported.parquet",
+            "startPoint": 0.2
+        },{
+            "type": "trace-based",
+            "pathToFile": "failure_traces/opendc_traces/Gmail_user_reported.parquet",
+            "startPoint": 0.4
+        },{
+            "type": "trace-based",
+            "pathToFile": "failure_traces/opendc_traces/Gmail_user_reported.parquet",
+            "startPoint": 0.6
+        },{
+            "type": "trace-based",
+            "pathToFile": "failure_traces/opendc_traces/Gmail_user_reported.parquet",
+            "startPoint": 0.8
+        }
+    ],
+    "checkpointModels": [
+        {
+            "checkpointInterval": 0,
+            "checkpointDuration": 0,
+            "checkpointIntervalScaling": 0
+        },
+        {
+            "checkpointInterval": 600000,
+            "checkpointDuration": 60000,
+            "checkpointIntervalScaling": 1.0
+        },
+        {
+            "checkpointInterval": 1800000,
+            "checkpointDuration": 60000,
+            "checkpointIntervalScaling": 1.0
+        },
+        {
+            "checkpointInterval": 3600000,
+            "checkpointDuration": 60000,
+            "checkpointIntervalScaling": 1.0
+        },
+        {
+            "checkpointInterval": 36000000,
+            "checkpointDuration": 60000,
+            "checkpointIntervalScaling": 1.0
+        },
+        {
+            "checkpointInterval": 600000,
+            "checkpointDuration": 60000,
+            "checkpointIntervalScaling": 1.25
+        }
+    ]
+}
