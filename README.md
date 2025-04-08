@@ -2,12 +2,14 @@
 
 The cloud uptime archive is a collection of failure traces from different cloud services. The cleaned and extracted traces are located in the `traces` folder. For some services, the traces have been collected from both the service operator and user reports to failure reporting websites such as Outage Report.
 
-The traces folder contains a different csv file for each service-source pair.Each trace is in the following format:
+The traces folder contains a different csv file for each service-source pair. Each trace is in the following format:
 
 | Start time  | End time | Severity |
 | ----------- | -------- | -------- |
 | timestamp   | timestamp| value between 0-1      |
 | ...         | ...      | ...      |
+
+Start time corresponds to the start time of the failure, and end time corresponds to the end time. Severity is a synthetic metric we generate based on the number of services and users affected. It can be interpreted as the probability that a task or a user request will fail in the time period represented by the start time and end time.
 
 ### Analysis scripts
 
